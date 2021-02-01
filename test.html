@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Metadata about the presentation -->
+    <meta charset="utf-8">
+
+    <title>revelation</title>
+
+    <meta name="description" content="A revelation example presentation">
+    <meta name="author" content="Humberto Rocha">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <!-- Presentation Styles -->
+    <link rel="stylesheet" href="static/revealjs/css/reveal.css">
+
+    
+      <link rel="stylesheet" href="static/revealjs/css/theme/black.css" id="theme">
+    
+
+    
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="static/revealjs/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? "static/revealjs/css/print/pdf.css" : "static/revealjs/css/print/paper.css";
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="static/revealjs/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    
+
+    <!-- Presentation body -->
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+            <section>
+              <section data-background-image="media/tibame_2.png" data-background-size="100%"></section>
+              <section data-background-image="media/tibame_4.png" data-background-size="100%"></section>
+              <section data-background-image="media/tibame_5.png" data-background-size="100%"></section>
+              <section data-background-image="media/tibame_6.png" data-background-size="100%"></section>
+              <section data-background-image="media/tibame_7.png" data-background-size="100%"></section>
+            </section>
+          
+            <section>
+                <section data-background-image="media/outline_1.png" data-background-size="100%"></section>
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    # Azure 與 Azure 認知服務
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## Azure 與 Azure 認知服務
+- Azure
+  - 微軟的公用雲端服務平台
+- Azure 認知服務
+  - 透過 API 或 SDK 提供 AI 服務
+  - 分為五大類：
+
+![](media/azure_cognitive.png)
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## Azure 帳號申請
+
+1. 進入https://login.microsoftonline.com/
+2. 可以用 outlook 、 hotmail或其他email建立帳戶
+3. 驗證email及真人身份
+4. 進入https://azure.microsoft.com/
+5. 按下*開始免費使用*
+6. 填妥信用卡資訊
+   - 免費使用階段不扣款，主動升級才會扣款
+   - 一開始可免費使用30天，並有大約100美金的credit
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## Azure CLI 安裝
+
+- 官方文件：
+  - https://docs.microsoft.com/zh-tw/cli/azure/install-azure-cli
+- 在 Ubuntu 上安裝 Azure CLI
+
+```
+# 更新並安裝必要的套件
+sudo apt-get update
+sudo apt-get install ca-certificates \
+curl apt-transport-https lsb-release gnupg
+# 下載並安裝Microsoft signing key
+curl -sL https://packages.microsoft.com/keys/microsoft.asc |
+    gpg --dearmor |
+    sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+```
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+- 在 Ubuntu 上安裝 Azure CLI
+
+```bash
+# 新增Azure CLI software repository
+AZ_REPO=$(lsb_release -cs)
+AZ_URL=https://packages.microsoft.com/repos/azure-cli/
+echo "deb [arch=amd64] $AZ_URL $AZ_REPO main" | 
+sudo tee /etc/apt/sources.list.d/azure-cli.list
+# 再次更新並安裝azure-cli
+sudo apt-get update
+sudo apt-get install azure-cli
+```
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## 登入Azure
+
+```
+az login
+```
+![](media/azure_login.png)
+- 會出現一串代碼
+- 進入https://aka.ms/devicelogin 
+- 輸入上述代碼
+- 選擇自己的帳戶登入
+
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## 選擇語言
+
+- 進入https://portal.azure.com/
+- 點選右上角的*設定* (齒輪圖示)
+- 依照使用習慣選擇語言
+  - 建議中文和英文對照著使用
+
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## 資源群組 (Resource Group) 和 資源 (Resource)
+
+- 資源 - Azure 所提供的服務，例如：電腦視覺服務 、 Web APP 、 Azure machine learning
+- 資源群組 - 存放 Azure 解決方案的相關資源的容器。建議把相關的資源放在同一個資源群組。
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## 新增資源群組
+
+1. 進入https://portal.azure.com/#home
+2. 點選<font color='#006DCE'>*建立資源*</font>
+3. 搜尋並選擇 <font color='#006DCE'>*resource group*</font>
+4. 建立資源群組
+5. 為自己的資源群組取名
+6. 選擇區域
+7. 可以給予標籤，以便將來使用服務太多時，可以針對標籤搜尋
+8. 建立資源群組
+
+
+                  </script>
+                </section>
+              
+            </section>
+          
+        
+          
+            <section>
+                <section data-background-image="media/outline_2.png" data-background-size="100%"></section>
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+
+# Azure 電腦視覺服務
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## 申請 Azure 電腦視覺服務
+
+1. 進入https://portal.azure.com/#home
+2. 點選<font color='#006DCE'>*建立資源*</font>
+3. 搜尋並選擇 <font color='#006DCE'>*computer vision*</font>
+4. 找到可以選擇定價層 <font color='#006DCE'>*Free F0*</font> 的區域
+5. 給予標籤
+6. 檢閱 + 建立
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## 安裝 Python Package
+
+```
+pip3 install azure-cognitiveservices-vision-computervision
+```
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+## Azure 物件偵測
+
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+### 物件偵測 (Object Detection)
+
+- 偵測物件位置
+- 判斷物件為何 (影像辨識- Image Classification)
+
+<img src="media/object_detection.png" width='40%'></img>
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
+                    
+
+### 物件偵測 (Object Detection)
+
+大致上分成三個步驟：
+
+1. Input
+2. Backbone: 擷取影像特徵
+3. Neck: 整合Backbone擷取出的影像特徵
+4. Head: 預測結果
+
+
+                  </script>
+                </section>
+              
+                <section data-markdown data-background-image="media/tibame.png" data-background-size="100%">
+                  <script type="text/template">
